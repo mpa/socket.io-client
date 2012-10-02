@@ -114,8 +114,16 @@ true
 500
 ```
 
-  The amount of milliseconds before we try to connect to the server again. We are using a exponential back off algorithm for the following reconnections, on each reconnect attempt this value will get multiplied (500 > 1000 > 2000 > 4000 > 8000).
+  The amount of milliseconds before we try to connect to the server again. By default, we are using an exponential backoff algorithm for the following reconnections, on each reconnect attempt this value will get multiplied (500 > 1000 > 2000 > 4000 > 8000).
   
+
+- *'use exponential backoff'*
+
+```js
+true
+```
+
+  A boolean indicating if we should use the exponential backoff algorithm for the following reconnections delays. If set to false, all reconnection attempts will run after the same amount of time (set in `reconnection delay` option).
 
 - *'max reconnection attempts'*
 
@@ -124,6 +132,7 @@ true
 ```
 
   The amount of attempts should we make using the current transport to connect to the server? After this we will do one final attempt, and re-try with all enabled transport methods before we give up.
+
 
 ##### Properties:
 
